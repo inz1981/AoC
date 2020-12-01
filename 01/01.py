@@ -1,8 +1,8 @@
 import itertools
 
 
-def tax_calc(data: list, wanted_sum: int):
-    for numbers in itertools.combinations(data, 3):
+def tax_calc(data: list, wanted_sum: int, combos):
+    for numbers in itertools.combinations(data, combos):
         if sum(numbers) == wanted_sum:
             return [data.index(number) for number in numbers]
 
@@ -25,7 +25,15 @@ if __name__ == '__main__':
     input_data = [1721, 979, 366, 299, 675, 1456]
     input_data = get_real_input_data()
 
-    positions = tax_calc(input_data, 2020)
+    print("----- part 1 -----")
+    positions = tax_calc(input_data, 2020, 2)
+    entries = [input_data[pos] for pos in positions]
+    mul = multiply_list(entries)
+    print(f"The entries are: {entries}")
+    print(f"multiplied are: {mul}")
+
+    print("----- part 2 -----")
+    positions = tax_calc(input_data, 2020, 3)
     entries = [input_data[pos] for pos in positions]
     mul = multiply_list(entries)
     print(f"The entries are: {entries}")
