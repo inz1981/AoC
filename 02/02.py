@@ -1,12 +1,3 @@
-import itertools
-
-
-def tax_calc(data: list, wanted_sum: int, combos):
-    for numbers in itertools.combinations(data, combos):
-        if sum(numbers) == wanted_sum:
-            return [data.index(number) for number in numbers]
-
-
 def read_input_file():
     with open('02/02_input.txt') as f:
         content = f.readlines()
