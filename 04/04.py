@@ -16,13 +16,13 @@ def read_input_file_part2(path, req_keys):
         passports = [line.replace("\n", " ") for line in newlines]
         check_passports = list()
         for passport in passports:
-            checked_passport = extended_check(passport, req_keys)
+            checked_passport = extended_check(passport)
             if checked_passport:
                 check_passports.append(checked_passport)
         return check_passports
 
 
-def extended_check(passport, req_keys):
+def extended_check(passport):
     byr = re.findall(r"byr:([0-9]{4})", passport)
     iyr = re.findall(r"iyr:([0-9]{4})", passport)
     hcl = re.findall(r"hcl:#([0-9a-f]{6})", passport)
