@@ -87,12 +87,12 @@ def part_2(path):
 
 if __name__ == '__main__':
     print("----- part 1 -----")
-    filepath = "24/24_input.txt"
+    filepath = "24_input.txt"
     _, grid = part_1(filepath)
     ans = count_black(grid)
     print(f"answer: {ans}")
 
     print("----- part 2 -----")
-    filepath = "24/24_input.txt"
+    filepath = "24_input.txt"
     ans = part_2(filepath)
     print(f"answer: {ans}")

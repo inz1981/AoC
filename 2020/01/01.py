@@ -8,7 +8,7 @@ def tax_calc(data: list, wanted_sum: int, combos):
 
 
 def get_real_input_data():
-    with open('01/01_input.txt') as f:
+    with open('01_input.txt') as f:
         return [int(x) for x in f]
 
 

@@ -1,5 +1,5 @@
 def read_input_file_test():
-    with open('03/03_input_test.txt') as f:
+    with open('03_input_test.txt') as f:
         content = f.readlines()
         return [x.strip() for x in content]
 
@@ -44,7 +44,7 @@ def multiply_list(my_list):
 if __name__ == '__main__':
 
     print("----- part 1 -----")
-    tree_map = read_input_file("03/03_input.txt")
+    tree_map = read_input_file("03_input.txt")
     trees, tree_map = traverse_map(3, 1, tree_map)
     print(f"num trees: {trees}")
 

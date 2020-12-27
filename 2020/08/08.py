@@ -54,7 +54,7 @@ def run(data):
 
 
 if __name__ == '__main__':
-    data = read_input_file("08/08_input.txt")
+    data = read_input_file("08_input.txt")
 
     accumulator = 0
     i = 0

@@ -1,5 +1,5 @@
 def read_input_file():
-    with open('02/02_input.txt') as f:
+    with open('02_input.txt') as f:
         content = f.readlines()
         return [x.strip() for x in content]
 

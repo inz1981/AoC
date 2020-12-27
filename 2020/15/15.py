@@ -43,12 +43,12 @@ def part_2(path):
 
 if __name__ == '__main__':
     print("----- part 1 -----")
-    filepath = "15/15_input.txt"
+    filepath = "15_input.txt"
     ans = part_1(filepath)
     print(f"answer: {ans}")
 
     print("----- part 2 -----")
-    filepath = "15/15_input.txt"
+    filepath = "15_input.txt"
     ans = part_2(filepath)
 
     print(f"answer: {ans}")

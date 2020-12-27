@@ -32,7 +32,7 @@ def find_row_col_and_id(seat: str):
 
 
 def part_1():
-    seats = read_input_file("05/05_input.txt")
+    seats = read_input_file("05_input.txt")
     boarding_passes = list()
     for seat in seats:
         row, col, seat_id = find_row_col_and_id(seat)

@@ -33,12 +33,12 @@ def iterate_xmas(data: list, preamble: int):
 
 
 def part_1():
-    data = read_input_file("09/09_input.txt")
+    data = read_input_file("09_input.txt")
     return iterate_xmas(data, 25)
 
 
 def part_2():
-    data = read_input_file("09/09_input.txt")
+    data = read_input_file("09_input.txt")
     err_sum = iterate_xmas(data, 25)
     min_max = find_sum_of_err(data, err_sum)
     return min_max

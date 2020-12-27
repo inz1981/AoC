@@ -24,7 +24,7 @@ def read_input_file_2(path):
 
 
 def part_1():
-    data = read_input_file("06/06_input.txt")
+    data = read_input_file("06_input.txt")
     result = 0
     for d in data:
         result = result + len(set(d))
@@ -32,7 +32,7 @@ def part_1():
 
 
 def part_2():
-    return read_input_file_2("06/06_input.txt")
+    return read_input_file_2("06_input.txt")
 
 
 if __name__ == '__main__':

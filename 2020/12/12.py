@@ -103,13 +103,13 @@ def turn(pos, value, direction, waypoint=None):
 
 if __name__ == '__main__':
     print("----- part 1 -----")
-    filepath = "12/12_input.txt"
+    filepath = "12_input.txt"
     data = part_1(filepath)
     ans = calc_manhattan_distance(data)
     print(f"answer: {ans}")
 
     print("----- part 2 -----")
-    filepath = "12/12_input.txt"
+    filepath = "12_input.txt"
     data = part_2(filepath)
     ans = calc_manhattan_distance(data)
     print(f"answer: {ans}")

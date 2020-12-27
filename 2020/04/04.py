@@ -55,7 +55,7 @@ if __name__ == '__main__':
     req_keys = ["byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"]
 
     print("----- part 1 -----")
-    data = read_input_file("04/04_input.txt")
+    data = read_input_file("04_input.txt")
     pass_keys = list()
     for d in data:
         matching = [s for s in req_keys if s in d]
@@ -68,6 +68,6 @@ if __name__ == '__main__':
     print(f"valid passports: {valid_passports}")
 
     print("----- part 2 -----")
-    data = read_input_file_part2("04/04_input.txt", req_keys)
+    data = read_input_file_part2("04_input.txt", req_keys)
     print(f"valid passports: {len(data)}")
 
