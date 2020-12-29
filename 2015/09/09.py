@@ -20,9 +20,9 @@ def parse_data(data):
 
 
 def find_distance(routes: list, loc1: str, loc2: str):
-    for route in routes:
-        if (loc1 in route[0] or loc1 in route[1]) and (loc2 in route[0] or loc2 in route[1]):
-            return route[2]
+    for r1, r2, dist in routes:
+        if (loc1 in r1 or loc1 in r2) and (loc2 in r1 or loc2 in r2):
+            return dist
 
 
 def part_1(data):
