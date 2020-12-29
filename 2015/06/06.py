@@ -7,25 +7,19 @@ def read_input_file(path):
         return [c for c in content.split("\n")]
 
 
-def create_grid():
+def create_grid(init_value):
     grid = {}
     for x in range(1000):
         for y in range(1000):
-            grid[(x, y)] = "off"
-    return grid
-
-
-def create_grid_2():
-    grid = {}
-    for x in range(1000):
-        for y in range(1000):
-            grid[(x, y)] = 0
+            grid[(x, y)] = init_value
     return grid
 
 
 def update_grid(start: tuple, end: tuple, action: str, grid: dict):
-    for pos, val in grid.items():
-        if (pos[0] >= start[0] and pos[1] >= start[1]) and (pos[0] <= end[0] and pos[1] <= end[1]):
+
+    for x in range(start[0], end[0]+1):
+        for y in range(start[1], end[1]+1):
+            pos = (x, y)
             if action == "on":
                 grid[pos] = "on"
             elif action == "off":
@@ -39,8 +33,9 @@ def update_grid(start: tuple, end: tuple, action: str, grid: dict):
 
 
 def update_grid_2(start: tuple, end: tuple, action: str, grid: dict):
-    for pos, val in grid.items():
-        if (pos[0] >= start[0] and pos[1] >= start[1]) and (pos[0] <= end[0] and pos[1] <= end[1]):
+    for x in range(start[0], end[0] + 1):
+        for y in range(start[1], end[1] + 1):
+            pos = (x, y)
             if action == "on":
                 grid[pos] += 1
             elif action == "off":
@@ -54,7 +49,7 @@ def update_grid_2(start: tuple, end: tuple, action: str, grid: dict):
 
 
 def part_1(data):
-    grid = create_grid()
+    grid = create_grid("off")
 
     for idx, instruction in enumerate(data):
         start, end = re.findall(r"(\d+),(\d+)", instruction)
@@ -89,7 +84,7 @@ def count_brightness(data):
 
 
 def part_2(data):
-    grid = create_grid_2()
+    grid = create_grid(0)
 
     for idx, instruction in enumerate(data):
         start, end = re.findall(r"(\d+),(\d+)", instruction)
@@ -112,7 +107,6 @@ if __name__ == '__main__':
     print("----- part 1 -----")
     filepath = "06_input.txt"
     data = read_input_file(filepath)
-
     ans = part_1(data)
     print(f"answer: {ans}")
 
