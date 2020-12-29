@@ -21,7 +21,7 @@ def parse_data(data):
 
 def find_distance(routes: list, loc1: str, loc2: str):
     for r1, r2, dist in routes:
-        if (loc1 in r1 or loc1 in r2) and (loc2 in r1 or loc2 in r2):
+        if (loc1 in r1 and loc2 in r2) or (loc1 in r2 and loc2 in r1):
             return dist
 
 
@@ -38,10 +38,8 @@ def part_1(data):
             loc2 = routes[idx]
             total_distance += find_distance(route_data, loc1, loc2)
         if not shortest:
-            print(f"First ({routes}): {total_distance}")
             shortest = total_distance
         elif total_distance < shortest:
-            print(f"new shortest! ({routes}): {total_distance}")
             shortest = total_distance
     return shortest
 
@@ -59,10 +57,8 @@ def part_2(data):
             loc2 = routes[idx]
             total_distance += find_distance(route_data, loc1, loc2)
         if not longest:
-            print(f"First ({routes}): {total_distance}")
             longest = total_distance
         elif total_distance > longest:
-            print(f"new longest! ({routes}): {total_distance}")
             longest = total_distance
     return longest
 
