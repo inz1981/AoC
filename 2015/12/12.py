@@ -13,11 +13,11 @@ def read_json_file(path):
         return json.load(f)
 
 
-def part_1(data: list):
-
-    numbers = re.findall(r"([0-9]+|-[0-9]+)", data.pop())
-    numbers = [int(x) for x in numbers]
-    return sum(numbers)
+def part_1(filepath):
+    with open(filepath) as f:
+        content = f.read()
+    numbers = re.findall(r"([0-9]+|-[0-9]+)", content)
+    return sum([int(x) for x in numbers])
 
 
 def part_2(data):
@@ -39,8 +39,7 @@ def iterate_json(data):
 if __name__ == '__main__':
     print("----- part 1 -----")
     filepath = "12_input.json"
-    data = read_input_file(filepath)
-    ans = part_1(data)
+    ans = part_1(filepath)
     print(f"answer: {ans}")
 
     print("----- part 2 -----")
