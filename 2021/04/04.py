@@ -2,15 +2,14 @@ def read_input_file(file_name: str):
     with open(file_name) as f:
         content = f.readline()
         numbers = content.replace("\n", "")
-        numbers = numbers.split(",")
-        numbers = [int(x) for x in numbers]
+        numbers = [int(x) for x in numbers.split(",")]
 
         _ = f.readline()
         content = f.read()
         newlines = content.split("\n\n")
         boards = list()
 
-        for idx, line in enumerate(newlines):
+        for line in newlines:
             board_lines = line.split("\n")
             board = list()
             for row in board_lines:

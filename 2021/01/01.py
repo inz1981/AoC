@@ -1,5 +1,20 @@
 def read_input_file(file_name: str):
+    """Read and return the file contents.
+
+    :param file_name: the file name
+    :return: contents
+    """
     with open(file_name) as f:
+        """Each line as string."""
+        # content = f.readlines()
+        # return [x.strip() for x in content]
+
+        """Multi-line data separated with one empty line."""
+        # content = f.read()
+        # newlines = content.split("\n\n")
+        # return [line.replace("\n", " ") for line in newlines]
+
+        """Each line as integer."""
         return [int(x) for x in f]
 
 
@@ -17,7 +32,6 @@ def part_1():
 
 def part_2():
     sonars = read_input_file("input.txt")
-
     prev = 0
     increases = 0
     for i in range(1, len(sonars)):

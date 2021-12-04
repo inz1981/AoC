@@ -1,9 +1,4 @@
 def read_input_file(file_name: str):
-    """Read and return the file contents.
-
-    :param file_name: the file name
-    :return: contents
-    """
     with open(file_name) as f:
         """Each line as string."""
         # content = f.readlines()
@@ -28,11 +23,9 @@ def part_2():
 
 if __name__ == '__main__':
     print("----- part 1 -----")
-    input1_data = [1721, 979, 366, 299, 675, 1456]
     part1_ans = part_1()
     print(f"answer: {part1_ans}")
 
     print("----- part 2 -----")
-    input2_data = [1721, 979, 366, 299, 675, 1456]
     part2_ans = part_2()
     print(f"answer: {part2_ans}")
