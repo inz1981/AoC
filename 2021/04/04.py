@@ -9,7 +9,6 @@ def read_input_file(file_name: str):
         content = f.read()
         newlines = content.split("\n\n")
         boards = list()
-
         for line in newlines:
             board_lines = line.split("\n")
             board = list()
