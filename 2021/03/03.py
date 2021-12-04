@@ -1,6 +1,3 @@
-import collections
-
-
 def read_input_file(file_name: str):
     with open(file_name) as f:
         """Each line as string."""
@@ -52,25 +49,50 @@ def get_most_least_sig(gamma):
 
 def part_2():
     data = read_input_file("input.txt")
-    gamma = data[::]
-    for i in range(len(data[0])):
-        most = collections.Counter([r[i] for r in gamma])
-        most = '1' if most['1'] >= most['0'] else '0'
-        gamma = list(filter(lambda x: x[i] == most, gamma))
-        if len(gamma) == 1:
+    oxy = data[::]
+    co2 = data[::]
+
+    for x in range(len(oxy[0])):
+        num_0 = 0
+        num_1 = 0
+        for y in range(len(oxy)):
+            if oxy[y][x] == "1":
+                num_1 += 1
+            elif oxy[y][x] == "0":
+                num_0 += 1
+            else:
+                raise ValueError("Don't know what to do.")
+
+        if num_0 > num_1:
+            oxy = [g for g in oxy if g[x] == "0"]
+        elif num_1 > num_0:
+            oxy = [g for g in oxy if g[x] == "1"]
+        else:
+            oxy = [g for g in oxy if g[x] == "1"]
+        if len(oxy) == 1:
             break
 
-    epsilon = data[::]
-    for i in range(len(data[0])):
-        least = collections.Counter([r[i] for r in epsilon])
-        least = '0' if least['1'] >= least['0'] else '1'
-        epsilon = list(filter(lambda x: x[i] == least, epsilon))
-        if len(epsilon) == 1:
+    for x in range(len(co2[0])):
+        num_0 = 0
+        num_1 = 0
+        for y in range(len(co2)):
+            if co2[y][x] == "1":
+                num_1 += 1
+            elif co2[y][x] == "0":
+                num_0 += 1
+            else:
+                raise ValueError("Don't know what to do.")
+
+        if num_0 < num_1:
+            co2 = [g for g in co2 if g[x] == "0"]
+        elif num_1 < num_0:
+            co2 = [g for g in co2 if g[x] == "1"]
+        else:
+            co2 = [g for g in co2 if g[x] == "0"]
+        if len(co2) == 1:
             break
 
-    epsilon_rate = int(epsilon[0], 2)
-    gamma_rate = int(gamma[0], 2)
-    return gamma_rate * epsilon_rate
+    return int(oxy[0], 2)*int(co2[0], 2)
 
 
 if __name__ == '__main__':
