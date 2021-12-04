@@ -5,6 +5,7 @@ def read_input_file(file_name: str):
         numbers = [int(x) for x in numbers.split(",")]
 
         _ = f.readline()
+
         content = f.read()
         newlines = content.split("\n\n")
         boards = list()
@@ -31,7 +32,6 @@ def mark_num_on_board(num: int, board: list):
 
 
 def check_if_won(board: list, dimension: int = 5):
-
     for x in range(dimension):
         # check columns
         if all(board[x][c][1] for c in range(dimension)):
@@ -53,7 +53,6 @@ def get_unmarked_sum(board: list):
 
 def part_1():
     numbers, boards = read_input_file("input.txt")
-
     for num in numbers:
         for board in boards:
             mark_num_on_board(num, board)
@@ -64,7 +63,6 @@ def part_1():
 def part_2():
     numbers, boards = read_input_file("input.txt")
     winning_boards_idx = []
-
     for num in numbers:
         for b_idx, board in enumerate(boards):
             if b_idx in winning_boards_idx:
