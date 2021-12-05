@@ -4,7 +4,6 @@ import math
 
 def read_input_file(file_name: str):
     with open(file_name) as f:
-        """Each line as string."""
         content = f.readlines()
         xy_range = [a.split(" -> ") for a in content]
         for xy_all in xy_range:
@@ -17,7 +16,7 @@ def get_plot_count(xy_data: list, diagonal=False):
     plot = []
     for xy_raw in xy_data:
         interval = []
-        for i, xy in enumerate(xy_raw):
+        for xy in xy_raw:
             interval.append([int(a) for a in xy.split(",")])
 
         x1 = interval[0][0]
@@ -45,7 +44,7 @@ def get_plot_count(xy_data: list, diagonal=False):
             if x1 != x2:
                 plot.extend([(x, y1) for x in x_plots])
 
-    two_or_more = [(count,) + item for item, count in Counter(plot).items() if count >= 2]
+    two_or_more = [(count,) + p for p, count in Counter(plot).items() if count >= 2]
     return len(two_or_more)
 
 
