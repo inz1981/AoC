@@ -24,16 +24,16 @@ def get_plot_count(xy_data: list, diagonal=False):
         y1 = interval[0][1]
         y2 = interval[1][1]
 
-        y_plots = list(range(math.ceil(min(y1, y2)), math.floor(max(y1, y2)) + 1))
-        x_plots = list(range(math.ceil(min(x1, x2)), math.floor(max(x1, x2)) + 1))
+        y_plots = list(range(min(y1, y2), max(y1, y2) + 1))
+        x_plots = list(range(min(x1, x2), max(x1, x2) + 1))
+        if x1 > x2:
+            x_plots = [x for x in reversed(x_plots)]
+        if y1 > y2:
+            y_plots = [y for y in reversed(y_plots)]
 
         # diagonal
         if diagonal:
             if x1 != x2 and y1 != y2:
-                if x1 > x2:
-                    x_plots = [x for x in reversed(x_plots)]
-                if y1 > y2:
-                    y_plots = [y for y in reversed(y_plots)]
                 for i, x in enumerate(x_plots):
                     plot.append((x, y_plots[i]))
 
