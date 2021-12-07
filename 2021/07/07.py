@@ -33,9 +33,8 @@ def avg_total_fuel(avg_pos_up, crabs):
     c = 0
     for x in crabs:
         f = abs(avg_pos_up - x)
-        prev = 0
         for fstep in range(1, f + 1):
-            c += prev + fstep
+            c += fstep
     return c
 
 
