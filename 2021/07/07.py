@@ -4,8 +4,8 @@ import math
 def read_input_file(file_name: str):
     with open(file_name) as f:
         content = f.readline()
-        fish = content.split(",")
-        return [int(x) for x in fish]
+        d = content.split(",")
+        return [int(x) for x in d]
 
 
 def part_1():
