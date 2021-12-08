@@ -1,24 +1,32 @@
 def read_input_file(file_name: str):
     with open(file_name) as f:
-        """Each line as string."""
-        # content = f.readlines()
-        # return [x.strip() for x in content]
-
-        """Multi-line data separated with one empty line."""
-        # content = f.read()
-        # newlines = content.split("\n\n")
-        # return [line.replace("\n", " ") for line in newlines]
-
-        """Each line as integer."""
-        return [int(x) for x in f]
+        content = f.readlines()
+        res = []
+        for c in content:
+            sigs, digs = c.split(" | ")
+            res.append(digs.replace("\n", ""))
+        return res
 
 
 def part_1():
-    return read_input_file("input.txt")
+    digs = read_input_file("input.txt")
+
+    d = []
+    for dig in digs:
+        dig_list = dig.split()
+        for x in dig_list:
+            d.append(x)
+
+    w_nums = [2, 3, 4, 7]
+    res = 0
+    for x in d:
+        if len(x) in w_nums:
+            res += 1
+    return res
 
 
 def part_2():
-    return read_input_file("input.txt")
+    return read_input_file("input_test.txt")
 
 
 if __name__ == '__main__':
