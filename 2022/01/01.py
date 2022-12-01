@@ -11,10 +11,10 @@ def read_input_file(file_name: str):
 
 
 def part_1():
-    dd = read_input_file("input.txt")
+    elves_cals = read_input_file("input.txt")
     highest_cal = 0
 
-    for x, elf in enumerate(dd):
+    for elf in elves_cals:
         sum_cal = sum(elf)
         if sum_cal >= highest_cal:
             highest_cal = sum_cal
@@ -23,10 +23,10 @@ def part_1():
 
 
 def part_2():
-    dd = read_input_file("input.txt")
+    elves_cals = read_input_file("input.txt")
     highest_cal = [0, 0, 0]
 
-    for x, elf in enumerate(dd):
+    for elf in elves_cals:
         sum_cal = sum(elf)
         minpos = highest_cal.index(min(highest_cal))
         if sum_cal > highest_cal[minpos]:
