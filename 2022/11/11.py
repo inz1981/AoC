@@ -59,7 +59,7 @@ def print_round(monkeys: dict, round: int):
 
 
 def part_2():
-    monkeys = read_input_file("input_test.txt")
+    monkeys = read_input_file("input.txt")
 
     round = 1
     while round < 10001:
